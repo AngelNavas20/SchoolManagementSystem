@@ -40,16 +40,17 @@ public class Main {
 
         System.out.println("Estudiante "+new_estudiante_nombre+" Agregado correctamente");
 
-        int decition = 0;
+        int decision = 0;
         try {
-            while (decition != 1 || decition != 2 ){
+            while (decision != 1 && decision != 2) {
                 System.out.println("Agregar a curso");
-                System.out.println("1.'Base de Datos'");
-                System.out.println("2.'Programación Java'");
+                System.out.println("1. 'Base de Datos'");
+                System.out.println("2. 'Programación Java'");
 
-                decition = sc.nextInt();
+                decision = sc.nextInt();
+                sc.nextLine();
 
-                if (decition == 1){
+                if (decision == 1) {
                     // Inscribir estudiantes en cursos
                     try {
                         gestor.inscribirEstudianteCurso(estudiante3, curso2.getId());
@@ -57,21 +58,21 @@ public class Main {
                         System.out.println(e.getMessage());
                     }
                     break;
-                }
-                else if (decition == 2){
+                } else if (decision == 2) {
                     try {
                         gestor.inscribirEstudianteCurso(estudiante3, curso1.getId());
                     } catch (EstudianteYaInscritoException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
-                }else{
-                    System.out.println("Opción no valida");
+                } else {
+                    System.out.println("Opción no válida");
                 }
             }
-        }catch (Exception e){
-            System.out.println("Opción no valida");
+        } catch (Exception e) {
+            System.out.println("Opción no válida");
         }
+
 
         // Inscribir estudiantes en cursos
         try {
